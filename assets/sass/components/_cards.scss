@@ -1,0 +1,24 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+
+.card {
+    background: white;
+    width: 270px;
+    height: 400px;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+.card-image {
+    background-color: green;
+    height: 150px;
+    margin-bottom: 15px;
+}
+
+.img-1 {
+    background-image: url('../../../images/bg.jpg');
+}

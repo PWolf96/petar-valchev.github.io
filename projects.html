@@ -34,7 +34,8 @@
 				flex-wrap: wrap;
 				justify-content: space-between;
 				margin-top: 100px;
-				animation: transitionIn 1s;
+				opacity: 0;
+				animation: transitionIn 1s forwards;
 			}
 
 			@keyframes transitionIn {
@@ -46,6 +47,10 @@
 				}
 			}
 
+			video {
+				width: 100%;
+				height: auto;
+			  }
 			.fade-out {
 				opacity: 0;
 				transition: all 0.3s ease-in-out;
@@ -110,15 +115,23 @@
 			<div id="main">
 				<!-- Intro -->
 				<article id="intro">
-					<h2 class="major">Intro</h2>
-					<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+					<h2 class="major">GARVIZ</h2>
+					<video controls>
+						<source src="images\GARVIZ promo.mp4" type="video/mp4"/>
+						Your browser does not support the video tag.
+						</video>
 					<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
 				</article>
 				<!-- Intro -->
 				<article id="intro5">
 					<h2 class="major">Intro</h2>
-					<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+					<span class="image main">
+						<video controls>
+							<source src="path/to/video.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						  </video>
+					</span>
 					<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
 				</article>
@@ -148,8 +161,8 @@
 			<div class="container">
 				<h2>Featured Project</h2>
 				<div class="card">
-					<h2>Featured 1</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nunc sed lacus consequat, a venenatis justo malesuada. Fusce pharetra libero sit amet urna fermentum, at laoreet orci bibendum. Curabitur efficitur blandit turpis eu volutpat.</p>
+					<h2>GARVIZ</h2>
+					<p>Garviz is a full stack web application which can be used to assist football teams manage their performance.</p>
 					<li><a href="#intro">Read More</a></li>
 				</div>
 			</div>
@@ -191,33 +204,5 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
-		<script>
-
-
-			const liElements = document.querySelectorAll('li');
-			const containerElements = document.querySelectorAll('.container');
-			const mainElement = document.querySelector('#main');
-
-			liElements.forEach(liElement => {
-				liElement.addEventListener('click', () => {
-				  containerElements.forEach(containerElement => {
-					containerElement.classList.add('fade-out');
-					containerElement.classList.remove('fade-in');
-				  });
-				});
-			  });
-			
-			  const articleElements = document.querySelectorAll('article');
-			  const observer = new MutationObserver(() => {
-				if (Array.from(articleElements).every(article => article.style.display === 'none')) {
-				  containerElements.forEach(containerElement => {
-					containerElement.classList.remove('fade-out');
-					containerElement.classList.add('fade-in');
-				  });
-				}
-			  });
-			
-			  observer.observe(mainElement, { attributes: true, attributeFilter: ['style'] });
-		</script>
 	</body>
 </html>

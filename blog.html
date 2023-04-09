@@ -34,7 +34,8 @@
 				flex-wrap: wrap;
 				justify-content: space-between;
 				margin-top: 100px;
-				animation: transitionIn 1s;
+                opacity: 0;
+				animation: transitionIn 1s forwards;
 			}
 
 			@keyframes transitionIn {
@@ -183,33 +184,5 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
-		<script>
-
-
-			const liElements = document.querySelectorAll('li');
-			const containerElements = document.querySelectorAll('.container');
-			const mainElement = document.querySelector('#main');
-
-			liElements.forEach(liElement => {
-				liElement.addEventListener('click', () => {
-				  containerElements.forEach(containerElement => {
-					containerElement.classList.add('fade-out');
-					containerElement.classList.remove('fade-in');
-				  });
-				});
-			  });
-			
-			  const articleElements = document.querySelectorAll('article');
-			  const observer = new MutationObserver(() => {
-				if (Array.from(articleElements).every(article => article.style.display === 'none')) {
-				  containerElements.forEach(containerElement => {
-					containerElement.classList.remove('fade-out');
-					containerElement.classList.add('fade-in');
-				  });
-				}
-			  });
-			
-			  observer.observe(mainElement, { attributes: true, attributeFilter: ['style'] });
-		</script>
 	</body>
 </html>

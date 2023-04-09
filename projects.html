@@ -198,15 +198,17 @@
 				});
 			  });
 			
-			  const closeButtonElements = document.querySelectorAll('.close');
-			  closeButtonElements.forEach(closeButtonElement => {
-				closeButtonElement.addEventListener('click', () => {
-				  const containerElement = closeButtonElement.closest('.container');
-				  containerElement.classList.remove('fade-out');
-				  containerElement.classList.add('fade-in');
-				});
+			  const articleElements = document.querySelectorAll('article');
+			  const observer = new MutationObserver(() => {
+				if (Array.from(articleElements).every(article => article.style.display === 'none')) {
+				  containerElements.forEach(containerElement => {
+					containerElement.classList.remove('fade-out');
+					containerElement.classList.add('fade-in');
+				  });
+				}
 			  });
-
+			
+			  observer.observe(mainElement, { attributes: true, attributeFilter: ['style'] });
 		</script>
 	</body>
 </html>

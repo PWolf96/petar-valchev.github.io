@@ -98,6 +98,7 @@
 			.hidden {
 				display: none;
 			}
+
 		</style>
 	</head>
 	<body class="is-preload">
@@ -113,25 +114,34 @@
 				</nav>
 			</header>
 			<div id="main">
-				<!-- Intro -->
-				<article id="intro">
+				<!-- Garviz -->
+				<article id="garviz">
 					<h2 class="major">GARVIZ</h2>
 					<video controls>
 						<source src="images\GARVIZ promo.mp4" type="video/mp4"/>
 						Your browser does not support the video tag.
 						</video>
-					<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+						<h3 style="margin-top: 100px;">Technologies used:</h3>
+						<p>
+							<img src="images\Python_logo.png" alt="logo1" style="width: 80px; padding: 0 20px;" >
+							<img src="images\flask_logo.png" alt="logo2" style="width: 80px; padding: 0 20px;" >
+							<img src="images\React_logo.png" alt="logo3" style="width: 80px; padding: 0 20px;" >
+							<img src="images\sql_logo.png" alt="logo4" style="width: 80px; padding: 0 20px;" >
+							<img src="images\Azure_logo.png" alt="logo5" style="width: 80px; padding: 0 20px;" >
+						</p>
+
+					<p>Garviz is an application which helps bringing objectivity in a subjective game like football. It aims to assist clubs, coaches or players who wish to get to the next level by making data driven decision-making. The application has three main functionalitiies.</p>
+					<p>GATHER - the place where users can capture all the information for your team. Store data for coaches, players, sessions and matches.</p>
+					<p>VISUALIZE - the place where users can look at the story of your team through dashboards. Create reports for team or player performance and share them with relevant stakeholders.</p>
+					<p>ANALYZE - the place where users can gain insights that are not possible to catch with the human eye with the help of AI and Machine Learning models.</p>
+					<p>The full stack application has been built using React as the front-end framework and Python-Flask as the back-end api which utilizes sql-alchemy ORM to communicate with a MSSQL database. The app has been built with the user in mind, allowing for flexibility and customization. Users can share teams, and assign different priviledges to users within a team. Furthermore, when it comes to gathering event data, the user can define the type of data to me collected. The application takes advantage of JWT authentication and authorization. It has been deployed as a web service using azure cloud services.</p>
+					<p>The analyze section will take advantage of data science and machine learning algorithms to uncover hidden patterns in the data that has been gathered from teams. The use of association analysis will help find the most probable outcomes given a user defined scenario while LSTM will allow the users to reflect on playing styles of both teams and players.</p>
+					<h3>Link to website:</h3>
+					<a href="https://garviz.azurewebsites.net/">https://garviz.azurewebsites.net/</a>
 				</article>
-				<!-- Intro -->
-				<article id="intro5">
-					<h2 class="major">Intro</h2>
-					<span class="image main">
-						<video controls>
-							<source src="path/to/video.mp4" type="video/mp4">
-							Your browser does not support the video tag.
-						  </video>
-					</span>
+				<!-- Where do shots come from? -->
+				<article id="shots">
+					<h2 class="major">Where do shots come from?</h2>
 					<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
 				</article>
@@ -163,14 +173,14 @@
 				<div class="card">
 					<h2>GARVIZ</h2>
 					<p>Garviz is a full stack web application which can be used to assist football teams manage their performance.</p>
-					<li><a href="#intro">Read More</a></li>
+					<li><a href="#garviz">Read More</a></li>
 				</div>
 			</div>
 			<div class="container">
 				<div class="card">
-					<h2>Article 1</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nunc sed lacus consequat, a venenatis justo malesuada. Fusce pharetra libero sit amet urna fermentum, at laoreet orci bibendum. Curabitur efficitur blandit turpis eu volutpat.</p>
-					<li><a href="#intro">Read More</a></li>
+					<h2>Association analysis</h2>
+					<p>Association analysis is a method used to mine patterns among high volume of events. It groups all the events which happened together and then analyses which occur together more often than not, compared to the total amount of event sequences.</p>
+					<li><a href="#shots">Read More</a></li>
 				</div>
 				<div class="card">
 					<h2>Article 2</h2>

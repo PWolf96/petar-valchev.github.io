@@ -623,9 +623,48 @@
 					<img src="images\rent-8.PNG" alt="rent8" style="width: 100%">
 					<h3>Useful links:</h3>
 					<a href="https://github.com/PWolf96/AirBnB--Boston">Github: Predicting rent prices</a><br>
-					<a href="https://medium.com/@pv1g15/how-to-book-an-airbnb-faa832fabfc6">Medium: Predicting rent prices</a><br>	
 				</article>
 
+				<article id="disaster-response">
+					<h2 class="major">Disaster response</h2>
+					<h3 style="margin-top: 100px;">Technologies used:</h3>
+					<p style="display: flex; align-items: center; max-width: 100%;  flex-wrap: wrap;background-color: rgb(212, 210, 210);margin-top: 20px; margin-bottom: 20px">
+						<img src="images\pandas-logo.png" alt="logo1" style="width: 150px; padding: 0 20px; margin-top: 20px; margin-bottom: 20px" >
+						<img src="images\numpy-logo.png" alt="logo2" style="width: 150px; padding: 0 20px; margin-top: 20px; margin-bottom: 20px" >
+						<img src="images\matplotlib-logo.png" alt="logo3" style="width: 150px; padding: 0 20px; margin-top: 20px; margin-bottom: 20px" >
+						<img src="images\nltk-logo.png" alt="logo3" style="width: 80px; padding: 0 20px; margin-top: 20px; margin-bottom: 20px" >	
+						<img src="images\sql_logo.png" alt="logo3" style="width: 80px; padding: 0 20px; margin-top: 20px; margin-bottom: 20px" >
+						<img src="images\flask_logo.png" alt="logo3" style="width: 80px; padding: 0 20px; margin-top: 20px;margin-bottom: 20px" >
+					</p>
+					<h3 style="margin-top: 100px;">Project overview</h3>
+					<p>This project focuses on analyzing text data. It uses Natural Language Processing to analyze messages and categorize them based on the words used. In this case, it analyzes text responses to a disaster and classifies them so that they are sent to the appropriate response group. The project refers to 2 datasets:</p>
+					<p>messages - the messages that were sent</p>
+					<p>categories - how those messages have been categorized The process contains, cleaning the data, then creating a machine learning pipeline which is used to train a model to do the aforementioned classification. In the end, a web app will be created where the model will be able to classify messages entered by the user.</p>
+					<h3 style="margin-top: 100px;">Process</h3>
+					<p>The biggest challenge in the cleaning process was to combine the 2 datasets 'messages' and 'categories' without creating unnecessary columns/rows. To do that messages and categories were cleaned separately. Initially, duplicate values have been removed from the datasets. Then categories has gone through the following cleaning steps:</p>
+					<p>
+						Split the column "categories" into separate values<br>
+						Rename the columns to represent their category name<br>
+						Iterate through all values and keep only the numbers. Then convert them to integers<br>
+						Adding the id column from the old dataset to the cleaned dataset<br>
+					</p>
+					<p>Then a new dataframe was created by merging the cleaned versions of 'messages' and 'categories' Finally, the merged dataset was cleaned from columns and rows which contained only 0s as they were deemed as unnecessary for the classification</p>
+					<p>Train the classifier<br>
+						In order to train the classifierm the following steps needed to be performed:<br>
+						<br>
+						Load the data from the SQL file<br>
+						Create 2 variables: X - containing all the messages; y - containing the dataframe of categories<br>
+						Tokenize the messages - each message has been split into words which have been transformed into their root form in lower cases.<br>
+						Tokens were created for each word and its respective role in the sentence. All tokens have been added to a list<br>
+						A model pipeline has been built with the following elements:<br>
+						CountVectorizer - creating the text documents into a matrix of token counts<br>
+						TfIdfTransformer - converting the text documents intoa matrix of tf-idf features<br>
+						LogisticRegression - classifying the dataset using Logistic regression<br>
+					</p>
+					<img src="images\nlp-1.PNG" alt="nlp" style="width: 100%">
+					<img src="images\nlp-2.PNG" alt="nlp2" style="width: 100%">
+					<a href="https://github.com/PWolf96/DisasterResponse-NLP">Github: Disaster response</a><br>
+				</article>
 		
 			</div>
 			<div class="container">
@@ -653,7 +692,7 @@
 				<div class="card" style="display: flex; flex-direction: column;">
 					<div style="flex-grow: 1;">
 						<h2>Disaster response</h2>
-						<p>Association analysis is a method used to mine patterns among high volume of events. It groups all the events which happened together and then analyses which occur together more often than not, compared to the total amount of event sequences.</p>
+						<p>Using natural language processing to categorize messages and send them to the relevant authorities.</p>
 					</div>
 					<div style="align-self: flex-end; flex-grow: 0;">
 						<a href="#disaster-response">Read More</a>

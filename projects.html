@@ -69,6 +69,11 @@
 				box-sizing: border-box;
 			}
 
+			@media screen and (max-width: 700px) {
+				.card {
+					width: 90%;
+				}
+			}
 			
 			.card h2 {
 				margin: 0;
@@ -99,7 +104,6 @@
 			.hidden {
 				display: none;
 			}
-
 		</style>
 	</head>
 	<body class="is-preload">
@@ -142,9 +146,9 @@
 				</article>
 				<!-- Predicting patterns of play -->
 				<article id="patterns">
-					<h2 class="major">Predicting patterns of play</h2>
+					<h2 class="major" style="width: 100%; word-wrap: break-word;">Predicting patterns of play</h2>
 					<h3 style="margin-top: 100px;">Technologies used:</h3>
-					<p style="display: flex; align-items: center; background-color: rgb(212, 210, 210);">
+					<p style="display: flex; align-items: center; flex-wrap: wrap; background-color: rgb(212, 210, 210);">
 						<img src="images\pandas-logo.png" alt="logo1" style="width: 150px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px" >
 						<img src="images\numpy-logo.png" alt="logo2" style="width: 150px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px" >
 						<img src="images\matplotlib-logo.png" alt="logo3" style="width: 150px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px" >
@@ -188,14 +192,14 @@
 					<p>Markov chains are stochastic in nature and only nine simulations are not a big enough sample size to reach any conclusions. Having a higher number of simulations would generate a set of sequences which would together contain a more accurate representation of what a given team is capable of. Those can then be labelled and fed into the coaching staff providing the insights that could allow for a better understanding of the analysed team.</p>
 					<p>In this case, five events in total have provided satisfactory results but they can be changed to reflect the needs of the user.The accuracy of the probabilities can be further increased by taking into account the action that led to the current state, however for that to be feasible, a bigger dataset is required.</p>
 					<h3>Useful links:</h3>
-					<a href="https://github.com/PWolf96/Football-Data-Science">Github: Predicting patterns of play</a>
-					<a href="https://medium.com/@pv1g15/predicting-patterns-of-play-e0817d0d7055">Medium: Predicting patterns of play</a>
+					<a href="https://github.com/PWolf96/Football-Data-Science">Github: Predicting patterns of play</a><br>
+					<a href="https://medium.com/@pv1g15/predicting-patterns-of-play-e0817d0d7055">Medium: Predicting patterns of play</a><br>
 				</article>
 				<!-- Player contribution - 1 -->
 				<article id="contribution1">
-					<h2 class="major">Player contribution</h2>
+					<h2 class="major" style="width: 100%; word-wrap: break-word;">Player contribution</h2>
 					<h3 style="margin-top: 100px;">Technologies used:</h3>
-					<p style="display: flex; align-items: center; background-color: rgb(212, 210, 210);">
+					<p style="display: flex; align-items: center; flex-wrap: wrap; background-color: rgb(212, 210, 210);">
 						<img src="images\pandas-logo.png" alt="logo1" style="width: 150px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px" >
 						<img src="images\numpy-logo.png" alt="logo2" style="width: 150px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px" >
 						<img src="images\matplotlib-logo.png" alt="logo3" style="width: 150px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px" >
@@ -244,12 +248,12 @@
 					<p>A first-order Markov model has been constructed and used to analyse the 20/21 season of Chelsea WFC. It aimed to evaluate players based on their contribution towards creating shooting chances and taking shooting opportunities. It was also used to get a visual representation of which zones have the highest probability of creating a shooting chance where it was concluded that the left-hand side is slightly more dangerous than the right-hand side with corners possessing the second highest threat of a shot after Zone 28. Players playing in forward or midfield positions yield the highest shot contribution. Defenders having low shot contribution values can serve as an indication that Chelsea does not use defenders as much to progress the ball into dangerous positions. This can be a result of tactical instructions or a lack of qualities to do so. Interesting insights have been extracted when looking at the least contributing players, which can lead to analysis in further detail when raised to the coaching staff.</p>
 					<p>Player evaluation has always been a crucial part of any competitive team. Recognising players as ones who perform up to standard and on the other hand, players who need to be developed further is embedded into the work cycle of any coaching staff. Before the digital era, conclusions have been deducted primarily based on subjectivity. However, technology has given the opportunity for a more objective approach to player evaluation based on pre-agreed criteria. A vast amount of parameters can be taken into account over a long time span, helping to uncover certain players’ merit, which could have been invisible to the naked eye. In doing so, a team can not only recognise and retain talent more effectively but also scout and uncover hidden gems which can vastly improve certain aspects of the team, something which in the long run can make a difference.</p>		
 					<h3>Useful links:</h3>
-					<a href="https://github.com/PWolf96/Football-Data-Science">Github: Evaluating player contribution</a>
-					<a href="https://medium.com/@pv1g15/evaluating-player-contribution-f9faea52238b">Medium: Evaluating player contribution</a>
+					<a href="https://github.com/PWolf96/Football-Data-Science">Github: Evaluating player contribution</a><br>
+					<a href="https://medium.com/@pv1g15/evaluating-player-contribution-f9faea52238b">Medium: Evaluating player contribution</a><br>
 				</article>
 				<!-- Player contribution - 2 -->
 				<article id="contribution2">
-					<h2 class="major">Player contribution</h2>
+					<h2 class="major" style="width: 100%; word-wrap: break-word;">Player contribution</h2>
 					<h3 style="margin-top: 100px;">Technologies used:</h3>
 					<p style="display: flex; align-items: center; flex-wrap: wrap; background-color: rgb(212, 210, 210);">
 						<img src="images\pandas-logo.png" alt="logo1" style="width: 150px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px" >
@@ -276,12 +280,12 @@
 					<p>Implementing a second-order Markov model suggests that including the preceding event in the context of the current event makes a difference in the probability of creating a shooting opportunity. That is to the surprise of any person who has watched a game of football. However, it was interesting to see how certain players have benefited more than others, suggesting a certain play style. Insights can be derived from comparing the two models alone since it has proven that it highlights players who are frequently on the receiving end of an unfavourable event, whether it is a pass, a clearance or a dribble. Analysing all 30 zones would provide an even more accurate estimate of the above, however, such a process is computationally demanding and could not be performed.</p>
 					<p>Football sometimes is a cruel game. Watching a certain player who has not had an impact may suggest that he has had little contribution and most conventional statistics can back that claim, where in reality there was little opportunity to contribute in the first place. Models like this highlight such cases. The context can then be further examined and tactical considerations can be put in place in order to improve performance. Something which in the long run can make a difference.</p>
 					<h3>Useful links:</h3>
-					<a href="https://github.com/PWolf96/Football-Data-Science">Github: Evaluating player contribution - 2nd order</a>
-					<a href="https://medium.com/@pv1g15/evaluating-player-contribution-continued-1f5855636dcd">Medium: Evaluating player contribution - 2nd order</a>		
+					<a href="https://github.com/PWolf96/Football-Data-Science">Github: Evaluating player contribution - 2nd order</a><br>
+					<a href="https://medium.com/@pv1g15/evaluating-player-contribution-continued-1f5855636dcd">Medium: Evaluating player contribution - 2nd order</a><br>	
 				</article>
 				<!-- Predicting playstyles -->
 				<article id="playstyles">
-					<h2 class="major">Predicting playstyles</h2>
+					<h2 class="major" style="width: 100%; word-wrap: break-word;">Predicting playstyles</h2>
 					<h3 style="margin-top: 100px;">Technologies used:</h3>
 					<p style="display: flex; align-items: center; max-width: 100%;  flex-wrap: wrap; background-color: rgb(212, 210, 210);">
 						<img src="images\pandas-logo.png" alt="logo1" style="width: 150px; padding: 0 20px;" >
@@ -341,21 +345,21 @@
 					<p>Such models outline initial steps towards being able to objectively classify complex datasets such as the ones of a free-flowing game of football. The same approach can be used to classify specific events which teams would like to bring attention to during opposition or team analysis. It could also be used towards understanding the habits of players and putting them into a category which can then be used to assess if one is a good fit for a certain system.</p>
 					<p>Attention is brought to many events or sequences that share similar contexts and are classified as being the same in an efficient manner, without needing to spend a vast amount of time. The saved time can then be utilized to break them down to the finest details and then find patterns to be able to come close to the way people involved in the decisions think and more importantly maybe uncover more pieces of the puzzle towards a certain outcome. Something which in the long run can make a difference.</p>
 					<h3>Useful links:</h3>
-					<a href="https://github.com/PWolf96/Football-Data-Science">Github: Predicting playstyles</a>
-					<a href="https://medium.com/@pv1g15/classifying-playstyles-cb5b3126a9be">Medium: Predicting playstyles</a>	
+					<a href="https://github.com/PWolf96/Football-Data-Science">Github: Predicting playstyles</a><br>
+					<a href="https://medium.com/@pv1g15/classifying-playstyles-cb5b3126a9be">Medium: Predicting playstyles</a><br>
 				
 				</article>
 
 				<article id="stock-price">
-					<h2 class="major">Predicting stock prices</h2>
+					<h2 class="major" style="width: 100%; word-wrap: break-word;">Predicting stock prices</h2>
 					<h3 style="margin-top: 100px;">Technologies used:</h3>
-					<p style="display: flex; align-items: center; max-width: 100%;  flex-wrap: wrap;background-color: rgb(212, 210, 210);margin-top: 20px">
-						<img src="images\pandas-logo.png" alt="logo1" style="width: 150px; padding: 0 20px; margin-top: 20px" >
-						<img src="images\numpy-logo.png" alt="logo2" style="width: 150px; padding: 0 20px; margin-top: 20px" >
-						<img src="images\matplotlib-logo.png" alt="logo3" style="width: 150px; padding: 0 20px; margin-top: 20px" >
-						<img src="images\scikit-learn-logo.png" alt="logo3" style="width: 120px; padding: 0 20px; margin-bottom: 20px" >
-						<img src="images\seaborn-logo.png" alt="logo3" style="width: 150px; padding: 0 20px;margin-bottom: 20px" >
-						<img src="images\keras-logo.png" alt="logo3" style="width: 80px; padding: 0 20px; margin-bottom: 20px" >	
+					<p style="display: flex; align-items: center; max-width: 100%;  flex-wrap: wrap;background-color: rgb(212, 210, 210);margin-top: 20px; margin-bottom: 20px">
+						<img src="images\pandas-logo.png" alt="logo1" style="width: 150px; padding: 0 20px; margin-top: 20px; margin-bottom: 20px" >
+						<img src="images\numpy-logo.png" alt="logo2" style="width: 150px; padding: 0 20px; margin-top: 20px; margin-bottom: 20px" >
+						<img src="images\matplotlib-logo.png" alt="logo3" style="width: 150px; padding: 0 20px; margin-top: 20px; margin-bottom: 20px" >
+						<img src="images\scikit-learn-logo.png" alt="logo3" style="width: 120px; padding: 0 20px; margin-top: 20px; margin-bottom: 20px" >
+						<img src="images\seaborn-logo.png" alt="logo3" style="width: 150px; padding: 0 20px; margin-top: 20px;margin-bottom: 20px" >
+						<img src="images\keras-logo.png" alt="logo3" style="width: 80px; padding: 0 20px; margin-top: 20px; margin-bottom: 20px" >	
 					</p>
 					<h3 style="margin-top: 100px;">Project overview</h3>
 					<p>This project will explore the possibility of analyzing time-series data in the form of stock prices in order to predict future growth or decline. For this purpose, a Long-Short Term Memory (LSTM) methodology will be adopted. The methodology will use a user-defined set of consecutive days that will train a model to predict the following days’ closing price of Google. In order to do that, the model will be trained on readily available data from Yahoo Finance. In conjunction with that, additional features will be added to increase the model accuracy. Finally, different timeframes of lookbacks will be compared to each other, in the attempt to find the most optimal solution.</p>
@@ -562,9 +566,66 @@
 					<p>Improvement</p>
 					<p>Improvements on the model include researching and testing out different technical indicators in an attempt to find the ones with the highest predictive power. More combinations within the LSTM model can be explored including layers, number of epochs etc. Furthermore, as mentioned previously, external factors do also influence the change in price of the stock. Incorporating an algorithm which would be able to track the sentiment of the market and applying a weight based on positive or negative news trends might prove to be beneficial in increasing accuracy. A natural language processing algorithm can be used for this purpose to analyze articles or other sources of text information. Once a desirable accuracy is achieved, an algorithm can be written that incorporates a buy/sell strategy which would maximize profits.</p>
 					<h3>Useful links:</h3>
-					<a href="https://github.com/PWolf96/Stock-Predictor">Github: Predicting stock prices</a>
-					<a href="https://medium.com/@pv1g15/predicting-stock-prices-afd6781c898e">Medium: Predicting stock prices</a>	
+					<a href="https://github.com/PWolf96/Stock-Predictor">Github: Predicting stock prices</a><br>
+					<a href="https://medium.com/@pv1g15/predicting-stock-prices-afd6781c898e">Medium: Predicting stock prices</a><br>	
 				</article>
+
+				<article id="rent-price">
+					<h2 class="major">Rent price estimator</h2>
+					<h3 style="margin-top: 100px;">Technologies used:</h3>
+					<p style="display: flex; align-items: center; max-width: 100%;  flex-wrap: wrap;background-color: rgb(212, 210, 210);margin-top: 20px; margin-bottom: 20px">
+						<img src="images\pandas-logo.png" alt="logo1" style="width: 150px; padding: 0 20px; margin-top: 20px; margin-bottom: 20px" >
+						<img src="images\numpy-logo.png" alt="logo2" style="width: 150px; padding: 0 20px; margin-top: 20px; margin-bottom: 20px" >
+						<img src="images\matplotlib-logo.png" alt="logo3" style="width: 150px; padding: 0 20px; margin-top: 20px; margin-bottom: 20px" >
+						<img src="images\scikit-learn-logo.png" alt="logo3" style="width: 120px; padding: 0 20px; margin-top: 20px; margin-bottom: 20px" >
+						<img src="images\seaborn-logo.png" alt="logo3" style="width: 150px; padding: 0 20px; margin-top: 20px;margin-bottom: 20px" >
+						<img src="images\nltk-logo.png" alt="logo3" style="width: 80px; padding: 0 20px; margin-top: 20px; margin-bottom: 20px" >	
+					</p>
+					<h3 style="margin-top: 100px;">Project overview</h3>
+					<p>For the purpose of this article, I have used AirBnB data for Boston. My aim is to answer 3 questions, namely:</p>
+					<p>1. Which factors influence the price of houses the most?</p>
+					<p>2. What are the most common words associated with each neighbourhood?</p>
+					<p>3. What are the best and worst deals based on the dataset?</p>
+					<p>I will do that with the help of the trusty Python and its useful libraries — Pandas, Numpy, Seaborn, Sklearn, Matplotlib, Nltk</p>
+					<h3 style="margin-top: 100px;">Getting to know the dataset</h3>
+					<p>Before we get into answering the proposed questions, let's have an initial look at the data.</p>
+					<img src="images\rent-1.PNG" alt="rent1" style="width: 100%">
+					<p>By looking at the price distribution it can be seen that most of the listings in Boston are in the $50–$200 range. But how is that distributed between different neighbourhoods? Figure 2 shows the average prices by neighbourhood. Looks like Bay Village has the highest whilst Mattapan has the lowest.</p>
+					<img src="images\rent-2.PNG" alt="rent2" style="width: 100%">
+					<p>It is always interesting to understand what makes the price of an accommodation.</p>
+					<p>Is it the fact that the property itself is built to a high standard? Or maybe its location provides easier access to places of interest?</p>
+					<p>In reality it is a combination of both.</p>
+					<h3 style="margin-top: 100px;">Which factors influence the price of houses the most?</h3>
+					<p>To answer this question, we will look at the dataset and see how each variable correlates to the price. The dataset already has a data like weekly price, monthly price, number of accommodates, cleaning fee etc. On top of those, the information which contains descriptions of either the accommodation itself, the neighbourhood, the landlord has been analyzed and searched for key words which are specified by us.</p>
+					<p>Those key words are:</p>
+					<p>‘accessible’, ‘beautiful’, ‘best’, ‘better’, ‘brilliant’, ‘charming’, ‘cheap’, ‘cheerful’, ‘clean’, ‘comfortable’, ‘comfy’, ‘connected’, ‘cosy’, ‘cozy’, ‘deluxe’, ‘desirable’, ‘elegant’, ‘excellent’, ‘favourite’, ‘fine’, ‘good’, ‘gorgeous’, ‘intimate’, ‘large’, ‘nice’, ‘pretty’, ‘private’, ‘spacious’, ‘splendid’, ‘stylish’, ‘tidy’, ‘magnificent’, ‘delicious’, ‘decent’, ‘perfect’, ‘positive’, ‘reasonable’, ‘tremendous’, ‘bright’, ‘modern’, ‘quiet’ , ‘multicultural’, ‘public transportation’, ‘easy access’, ‘shops’, ‘restaurants’, ‘welcoming’, ‘stores’, ‘shop’, ‘store’, ‘gem’, ‘cafes’, ‘transport’, ‘museum’, ‘family’, ‘bars’, ‘roommate’, ‘pet’, ‘dog’, ‘cat’, ‘children’, ‘child’, ‘crazy’, ‘toddler’, ‘kid’, ‘parking’, ‘rail station’, ‘bus station’, ‘private bathroom’, ‘kitchen’, ‘wifi’, ‘home office’, ‘professional’, ‘busy’, ‘chat’, ‘large’, ‘sunny’</p>
+					<p>The key words have been selected to match some of the most common phrases used when listing an accommodation.</p>
+					<img src="images\rent-3.PNG" alt="rent3" style="width: 100%">
+					<img src="images\rent-4.PNG" alt="rent4" style="width: 100%">
+					<p>As expected, the highest correlation between the set price is the weekly and monthly price of the accommodation, followed by the number of accommodates it can take. In figure 4, it can be seen that private rooms and 1 beds have the highest inverse correlation with price. It is also worth noting that modern, elegant and deluxe are the ones from the key words that are highly correlated to the price.</p>
+					<h3 style="margin-top: 100px;">What are the most common words associated with each neighbourhood?</h3>
+					<p>Each listing has a neighbourhood overview section in which the landlord describes the neighbourhood. We will turn our attention to those descriptions in order to answer this question.</p>
+					<p>Firstly, we group the descriptions into neighbourhoods. Then we analyze them and count the amount of times each word has been used. The result is a WordCloud visualization which displays the words that are used. The bigger the word is, the more it is used in the descriptions.</p>
+					<img src="images\rent-5.PNG" alt="rent5" style="width: 100%">
+					<p>Looking at figure 5, Bay Village seems to have a lot of mentions about a park, theater, restaurant. It can be suggested that the higher average prices are driven by a calmer area. Alternatively, Leather District, the second highest average prices neighbourhood, has words like minute walk, station, center etc. which suggests it is a very communicative place.</p>
+					<h3 style="margin-top: 100px;">What are the best and worst deals based on the dataset?</h3>
+					<p>How can we suggest which deals are good and which are bad? The philosophy behind this idea is that the price a landlord puts on his accommodation does not always correspond to the market in that area. Landlord can have a vague idea of the market but will always have some bias towards their accommodation, swaying the price one way or another.</p>
+					<p>When analyzing the whole Boston dataset, a Linear Regression model will be trained to predict the price based on the information it gets from all listings all together — ‘the market’. Then the difference, whether positive or negative, reflects on how good or bad the deal is on renting the place.</p>
+					<p>In order to train the model successfully, the model needs to be cleaned of missing values. The factors which have missing values in the dataset are the following:</p>
+					<p>‘bathrooms’, ‘beds’, ‘cleaning_fee’, ‘monthly_price’, ‘weekly_price’, ‘review_scores_accuracy’, ‘review_scores_checkin’, ‘review_scores_cleanliness’, ‘review_scores_communication’, ‘review_scores_location’, ‘review_scores_rating’, ‘review_scores_value’, ‘security_deposit’</p>
+					<p>Factors such as cleaning fee and security deposit have been considered as services, hence instead of an input representing the cost, it has been transformed into a 1 if the service is present and a 0 if it is not.</p>
+					<p>The rest of the missing factors have been populated with their respective means. A more robust approach would include to train a separate model that predicts the monthly price and weekly price based on the other factors. That would increase the accuracy of the prediction. However, it would be left for a future iteration.</p>
+					<p>After training the model a result of 0.65% has been achieved with a mean absolute error of 40%. Whilst the performance of the model can be considered low in some cases, in this case it is deemed satisfactory due to the context described earlier.</p>
+					<p>In figure 6 the actual price distribution (green line) vs the predicted price distribution (blue line) has been presented in the visualization on the lefthand side. It can be seen from this visualization that there are good deals to be grabbed in the $50–$150 region indicated by the green line being higher than the blue line. On the other hand, it can be seen that the pricier options have not been justified based on the algorithm.</p>
+					<p>Figure 7 and figure 8 present the listing ids of the Top 10 best and worst deals. With the best deal being around $200 cheaper than predicted and the worst being $360 more expensive.</p>
+					<img src="images\rent-6.PNG" alt="rent6" style="width: 100%">
+					<img src="images\rent-7.PNG" alt="rent7" style="width: 100%">
+					<img src="images\rent-8.PNG" alt="rent8" style="width: 100%">
+					<h3>Useful links:</h3>
+					<a href="https://github.com/PWolf96/AirBnB--Boston">Github: Predicting rent prices</a><br>
+					<a href="https://medium.com/@pv1g15/how-to-book-an-airbnb-faa832fabfc6">Medium: Predicting rent prices</a><br>	
+				</article>
+
 		
 			</div>
 			<div class="container">
@@ -581,8 +642,8 @@
 			</div>
 			<div class="container">
 				<div class="card" style="display: flex; flex-direction: column;">
-					<div style="flex-grow: 1;">
-						<h2>Predicting stock prices</h2>
+					<div style="flex-grow: 1; ">
+						<h2 style="word-wrap: break-word;">Predicting stock prices</h2>
 						<p>This project will explore the possibility of analyzing time-series data in the form of stock prices in order to predict future growth or decline.</p>
 					</div>
 					<div style="align-self: flex-end; flex-grow: 0;">
@@ -601,7 +662,7 @@
 				<div class="card" style="display: flex; flex-direction: column;">
 					<div style="flex-grow: 1;">
 						<h2>Rent price estimator</h2>
-						<p>Association analysis is a method used to mine patterns among high volume of events. It groups all the events which happened together and then analyses which occur together more often than not, compared to the total amount of event sequences.</p>
+						<p>Using linear regression to find the best and worst deals in Boston based on AirBnB data</p>
 					</div>
 					<div style="align-self: flex-end; flex-grow: 0;">
 						<a href="#rent-price">Read More</a>

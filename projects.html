@@ -139,11 +139,49 @@
 					<h3>Link to website:</h3>
 					<a href="https://garviz.azurewebsites.net/">https://garviz.azurewebsites.net/</a>
 				</article>
-				<!-- Where do shots come from? -->
-				<article id="shots">
-					<h2 class="major">Where do shots come from?</h2>
-					<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+				<!-- Predicting patterns of play -->
+				<article id="patterns">
+					<h2 class="major">Predicting patterns of play</h2>
+					<p>A Markov process is a process where predictions can be made regarding future outcomes based on the current state of play. In a given sequence of events, it iterates through each event where for each iteration it pairs the event with its descendant, labelling the first current state and the latter subsequent state. Each state has a list of all the different states (including itself) it can lead to and their frequency, forming a probability of going from it to another one. In the end, random sequences will be generated with an algorithm using those probabilities to form the most probable series of events given a certain event-location is the start.</p>
+					<img src="images\patterns-1.PNG" alt="pattern1" style="width: 100%">
+					<p>Markov chains are characterized as memoryless meaning that they generate the subsequent event only based on the current one and not on the ones before that. In the context of football, this approach will not provide the full context as it matters whether a player for example receives the ball from a short pass on the ground or from a 40m long ball. More accurate models exists that take those considerations into account and they will be explored in future articles. However, for the purpose of the analysis, the Markov model will be explored in its memoryless form.</p>
+					<h3 style="margin-top: 100px;">Methodology:</h3>
+					<p>The dataset that will be used is the WSL 2020/2021 season data provided by StatsBomb free data repository. All games that Chelsea WFC have played have been filtered in order to produce a dataset of events which occurred only during their games. Several assumptions have been made to aid the analysis, namely:</p>
+					<p>1. The pitch has been split into 30 zones</p>
+					<p>Analysing the coordinates of each event independently would not yield any insights due to the variable nature of event coordinates. Hence, the pitch has been split into zone containers each representing a certain range between X and Y coordinates. Figure 1 outlines the zones in which the pitch was split. The zones split the pitch into 6 laterally in order to break down the opposition half into 3rds and into 5 longitudinally in order to include the half-spaces which have become popular in modern football.</p>
+					<img src="images\patterns-2.PNG" alt="pattern2" style="width: 100%">
+					<p>Events have then been added to their respective containers. This forms a link between the event and the zone it happened which will be represented in the following format:</p>
+					<p>{Event Type} — {Event Zone}</p>
+					<p>An example itemset of a shot would look like the following:</p>
+					<p>(Pass-Zone6) -> (Interception-Zone9) -> (Carry-Zone9) -> (Pass-Zone9) -> (Carry-Zone3)</p>
+					<p>2. Carry and Ball Receipt events have been filtered out from the dataset</p>
+					<p>Both have been deemed to not add extra value over using just the Pass event in the context of the analysis. Every Pass has a Ball Receipt linked to it which is very rarely positioned in a different zone to the next event, making it redundant. Just like passes are coupled with ball receipts, in the dataset used, every time a ‘Dribble’ event occurs it is coupled with a ‘Carry’ event. Upon inspection, it was determined that ‘Carry’ events provide more information in the context of the analysis and were kept over ‘Dribble’ events.</p>
+					<p>3. Possessions against Chelsea have been filtered out</p>
+					<p>Since the purpose of this analysis is to concentrate on predicting what Chelsea WFC do when they are in possession, all possessions from other teams have been excluded from the dataset to avoid misleading results.</p>
+					<p>Once the dataset has been cleaned, all the event-zone combinations have been added to a list. This list is then iterated through to create a Markov model containing the probabilities of advancing onto any other event-zone combination given the current state. For the purpose of this exercise, this will be sufficient in order to generate stories.</p>
+					<p>To generate a random possession, a starting state will need to be passed onto the algorithm as well as the length of the sequence we want to generate. The algorithm will then use the probabilities that have been generated from the Markov model to create a passing sequence to the desired length. In theory, any event-zone combination can be passed as a starting state, but for the purpose of this analysis, only four states will be looked into. Similarly, a possession of any length can be generated and for this analysis, the assumed length of a possession will be five events. Lastly, nine hypothetical possessions will be generated for each state.</p>
+					<p>The only step left is to define the states of interest. For this purpose, a heat map, containing all the events during the 20/21 season will be used to determine the most used zones from the team.</p>
+					<img src="images\patterns-3.PNG" alt="pattern3" style="width: 100%">
+					<p>Figure 2 outlines the commonly used areas by the team while in possession. It can be seen that Chelsea has made use of Zones 11,16 on the left-hand side and Zones 15,20 on the right-hand side. Only zones 16 and 20 will be used as states as they are closer to the opponent’s goal. On top of those 2 zones, passes from Zone 3 will be included in order to represent a probable sequence of events following a goal kick from Chelsea, as well as Zone 21, considered to be one of the zones most frequently leading to a shot as per the previous article.</p>
+					<h3 style="margin-top: 100px;">Results:</h3>
+					<p>Pass-Zone 3</p>
+					<img src="images\patterns-4.PNG" alt="pattern4" style="width: 100%">
+					<p>Looking at the nine hypothetical cases that have been generated from the algorithm for ‘Pass-Zone3’ it can be seen that there is an equal spread between resolving to play out from the back and making the decision to play over the first line of the opposition directly to the middle 3rd. An interesting trend can be observed when the team do decide to play over the first line of defence, they mainly resolve to playing in Zone 11 which is on the left-hand side of the pitch. Looking further into the sequence, once the ball reaches Zone 11 it is being progressed forward through the wide areas into Zones 16 and 21 with only one occasion where it is being passed back and recycled(7). When a decision is made to play out from the back, rather unsurprisingly the following four plays do not progress the ball further onto the pitch but is played between players in the zones in front of the goal, possibly to force a reaction from the opposition.</p>
+					<p>Pass-Zone 16</p>
+					<img src="images\patterns-5.PNG" alt="pattern5" style="width: 100%">
+					<p>The generated sequences starting with Pass-Zone16 show a preference for slow build-up instead of a direct approach. Upon inspection, only one sequence (2) presents an attack which ends up in Zone 28. Instead, the algorithm insists that it is more likely for the team to make short passes in the attempt to consolidate possession or to move the ball to the other side of the pitch. There has also been a lack of long ball switches from the left-hand side to the right-hand side which serves as a further indication of the team’s preference to play short passes when in that area.</p>
+					<p>Pass-Zone 20</p>
+					<img src="images\patterns-6.PNG" alt="pattern6" style="width: 100%">
+					<p>Similar to the previous case, Pass-Zone20 offers little difference in principle to what was observed when the team was in a similar position but on the other side of the pitch. The most probable sequence in this area consists of short passes which aim to consolidate possession or to switch the area of play to the other side of the pitch. Two outliers are presented in (3) and (5) which show attempts for a more direct play.</p>
+					<p>Pass-Zone 21</p>
+					<img src="images\patterns-7.PNG" alt="pattern7" style="width: 100%">
+					<p>Looking at Pass-Zone21 becomes more interesting as the area is positioned in the attacking 3rd of the pitch and one would expect to see more assertive plays to attack the opposition goal. And indeed a shot has been included in the sequence in three (1),(3), and (8) of the nine generated samples which can serve as an indication of the team’s potency to create a shooting chance from that area. In those cases, the shot has been preceded by either a cross (1),(8) or a switch into the opposite half-space, something that could be worth analysing in depth. It can also be observed the high presence of Pressure events which can serve as an initial indication of counter-pressing tactical instructions in the final 3rd.</p>
+					<h3 style="margin-top: 100px;">Conclusion:</h3>
+					<p>In this article, a season-long dataset of events for Chelsea WFC has been analysed and a Markov chain has been constructed to calculate the probabilities of transitioning from one state to another. This has then been used to simulate possessions with a pre-determined starting point. For the purpose of the analysis 4 starting points have been analysed namely: a goal kick Pass-Zone3 passes starting in the most active areas for the team Pass-Zone16 and Pass-Zone20 and passes from an area determined to be potent for creating shots Pass-Zone21. By running only nine simulations, some potentially interesting insights can be observed like the team preferring to pass to the left-hand side of the pitch if it makes a decision to skip the first line of defence or that when in Zone20 or Zone16 the team would rather consolidate possession than look for a direct approach. Pass-Zone21 had 30% of its simulations ending with a shot which confirms its potency to create shots, it also visually recreated the way that is most likely for the team to create a shooting chance — with crosses.</p>
+					<p>Markov chains are stochastic in nature and only nine simulations are not a big enough sample size to reach any conclusions. Having a higher number of simulations would generate a set of sequences which would together contain a more accurate representation of what a given team is capable of. Those can then be labelled and fed into the coaching staff providing the insights that could allow for a better understanding of the analysed team.</p>
+					<p>In this case, five events in total have provided satisfactory results but they can be changed to reflect the needs of the user.The accuracy of the probabilities can be further increased by taking into account the action that led to the current state, however for that to be feasible, a bigger dataset is required.</p>
+					<h3>Link to github:</h3>
+					<a href="https://github.com/PWolf96/Football-Data-Science">Predicting patterns of play</a>
 				</article>
 				<!-- Intro -->
 				<article id="intro2">
@@ -178,9 +216,9 @@
 			</div>
 			<div class="container">
 				<div class="card">
-					<h2>Association analysis</h2>
+					<h2>Predicting patterns of play</h2>
 					<p>Association analysis is a method used to mine patterns among high volume of events. It groups all the events which happened together and then analyses which occur together more often than not, compared to the total amount of event sequences.</p>
-					<li><a href="#shots">Read More</a></li>
+					<li><a href="#patterns">Read More</a></li>
 				</div>
 				<div class="card">
 					<h2>Article 2</h2>

@@ -69,6 +69,7 @@
 				box-sizing: border-box;
 			}
 
+			
 			.card h2 {
 				margin: 0;
 				font-size: 28px;
@@ -122,12 +123,12 @@
 						Your browser does not support the video tag.
 						</video>
 						<h3 style="margin-top: 100px;">Technologies used:</h3>
-						<p>
-							<img src="images\Python_logo.png" alt="logo1" style="width: 80px; padding: 0 20px;" >
-							<img src="images\flask_logo.png" alt="logo2" style="width: 80px; padding: 0 20px;" >
-							<img src="images\React_logo.png" alt="logo3" style="width: 80px; padding: 0 20px;" >
-							<img src="images\sql_logo.png" alt="logo4" style="width: 80px; padding: 0 20px;" >
-							<img src="images\Azure_logo.png" alt="logo5" style="width: 80px; padding: 0 20px;" >
+						<p style="display: flex; align-items: center; background-color: rgb(212, 210, 210);">
+							<img src="images\Python_logo.png" alt="logo1" style="width: 80px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px">
+							<img src="images\flask_logo.png" alt="logo2" style="width: 80px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px">
+							<img src="images\React_logo.png" alt="logo3" style="width: 80px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px">
+							<img src="images\sql_logo.png" alt="logo4" style="width: 80px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px">
+							<img src="images\Azure_logo.png" alt="logo5" style="width: 80px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px">
 						</p>
 
 					<p>Garviz is an application which helps bringing objectivity in a subjective game like football. It aims to assist clubs, coaches or players who wish to get to the next level by making data driven decision-making. The application has three main functionalitiies.</p>
@@ -142,6 +143,12 @@
 				<!-- Predicting patterns of play -->
 				<article id="patterns">
 					<h2 class="major">Predicting patterns of play</h2>
+					<h3 style="margin-top: 100px;">Technologies used:</h3>
+					<p style="display: flex; align-items: center; background-color: rgb(212, 210, 210);">
+						<img src="images\pandas-logo.png" alt="logo1" style="width: 150px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px" >
+						<img src="images\numpy-logo.png" alt="logo2" style="width: 150px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px" >
+						<img src="images\matplotlib-logo.png" alt="logo3" style="width: 150px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px" >
+					</p>
 					<p>A Markov process is a process where predictions can be made regarding future outcomes based on the current state of play. In a given sequence of events, it iterates through each event where for each iteration it pairs the event with its descendant, labelling the first current state and the latter subsequent state. Each state has a list of all the different states (including itself) it can lead to and their frequency, forming a probability of going from it to another one. In the end, random sequences will be generated with an algorithm using those probabilities to form the most probable series of events given a certain event-location is the start.</p>
 					<img src="images\patterns-1.PNG" alt="pattern1" style="width: 100%">
 					<p>Markov chains are characterized as memoryless meaning that they generate the subsequent event only based on the current one and not on the ones before that. In the context of football, this approach will not provide the full context as it matters whether a player for example receives the ball from a short pass on the ground or from a 40m long ball. More accurate models exists that take those considerations into account and they will be explored in future articles. However, for the purpose of the analysis, the Markov model will be explored in its memoryless form.</p>
@@ -186,7 +193,13 @@
 				</article>
 				<!-- Player contribution - 1 -->
 				<article id="contribution1">
-					<h2 class="major">Player contribution - 1st order</h2>
+					<h2 class="major">Player contribution</h2>
+					<h3 style="margin-top: 100px;">Technologies used:</h3>
+					<p style="display: flex; align-items: center; background-color: rgb(212, 210, 210);">
+						<img src="images\pandas-logo.png" alt="logo1" style="width: 150px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px" >
+						<img src="images\numpy-logo.png" alt="logo2" style="width: 150px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px" >
+						<img src="images\matplotlib-logo.png" alt="logo3" style="width: 150px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px" >
+					</p>
 					<p>This article will explore the possibility of evaluating player contribution to shots. Inspired by an article written by StatsBomb, a first-order Markov model will be constructed to take into account all events that have happened in a single season for Chelsea WFC and evaluate their contribution towards a shot.</p>
 					<h3 style="margin-top: 100px;">First order Markov chain</h3>
 					<p>A Markov chain is a random process describing a sequence of possible events in which the probability of each event depends on events that happened before. This analysis will use a first-order Markov chain meaning that the probability of each event depends only on the state attained in the previous event. A graphical representation of the chain is given in Figure 1. The chain is divided into transition states and absorption states.</p>
@@ -236,7 +249,13 @@
 				</article>
 				<!-- Player contribution - 2 -->
 				<article id="contribution2">
-					<h2 class="major">Player contribution - 2nd order</h2>
+					<h2 class="major">Player contribution</h2>
+					<h3 style="margin-top: 100px;">Technologies used:</h3>
+					<p style="display: flex; align-items: center; flex-wrap: wrap; background-color: rgb(212, 210, 210);">
+						<img src="images\pandas-logo.png" alt="logo1" style="width: 150px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px" >
+						<img src="images\numpy-logo.png" alt="logo2" style="width: 150px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px" >
+						<img src="images\matplotlib-logo.png" alt="logo3" style="width: 150px; padding: 0 20px; margin-bottom: 20px; margin-top: 20px" >
+					</p>
 					<h3 style="margin-top: 100px;">Methodology:</h3>
 					<p>The methodology is the same as in the first-order Markov chain analysis with a few notable exceptions.</p>
 					<p>Zones 1 to Zone 15 have been condensed to Zone 1 — Zone 3 as outlined in Figure 1 below. Reason being that implementing a second-order model contributes to a significant increase in transient states which would be computationally demanding.</p>
@@ -263,6 +282,16 @@
 				<!-- Predicting playstyles -->
 				<article id="playstyles">
 					<h2 class="major">Predicting playstyles</h2>
+					<h3 style="margin-top: 100px;">Technologies used:</h3>
+					<p style="display: flex; align-items: center; max-width: 100%;  flex-wrap: wrap; background-color: rgb(212, 210, 210);">
+						<img src="images\pandas-logo.png" alt="logo1" style="width: 150px; padding: 0 20px;" >
+						<img src="images\numpy-logo.png" alt="logo2" style="width: 150px; padding: 0 20px;" >
+						<img src="images\matplotlib-logo.png" alt="logo3" style="width: 150px; padding: 0 20px;" >
+						<img src="images\nltk-logo.png" alt="logo3" style="width: 100px; padding: 0 20px;" >
+						<img src="images\pytorch-logo.png" alt="logo3" style="width: 180px; padding: 0 20px;" >
+						<img src="images\scikit-learn-logo.png" alt="logo3" style="width: 120px; padding: 0 20px; margin-bottom: 20px" >
+						<img src="images\seaborn-logo.png" alt="logo3" style="width: 150px; padding: 0 20px;" >
+					</p>
 					<p>This analysis will attempt to use LSTM models to classify the playing styles of teams based on possession sequences. Three main categories will be defined which represent the main styles of play that a team can produce namely Slow build-up, Direct play and Control based play. Two more categories are added in Set-pieces and Uncategorized to allow for isolated events and less organized sequences to be classified.</p>
 					<h3 style="margin-top: 100px;">LSTM Neural Networks</h3>
 					<p>Long short-term memory is a type of recurrent neural network that can process not only single data points but also entire sequences of data. The name is derived from having the ability to store and take into consideration information not only from short-term memory but also retained information from previous states called ‘long-term memory‘.</p>
@@ -316,42 +345,304 @@
 					<a href="https://medium.com/@pv1g15/classifying-playstyles-cb5b3126a9be">Medium: Predicting playstyles</a>	
 				
 				</article>
+
+				<article id="stock-price">
+					<h2 class="major">Predicting stock prices</h2>
+					<h3 style="margin-top: 100px;">Technologies used:</h3>
+					<p style="display: flex; align-items: center; max-width: 100%;  flex-wrap: wrap;background-color: rgb(212, 210, 210);margin-top: 20px">
+						<img src="images\pandas-logo.png" alt="logo1" style="width: 150px; padding: 0 20px; margin-top: 20px" >
+						<img src="images\numpy-logo.png" alt="logo2" style="width: 150px; padding: 0 20px; margin-top: 20px" >
+						<img src="images\matplotlib-logo.png" alt="logo3" style="width: 150px; padding: 0 20px; margin-top: 20px" >
+						<img src="images\scikit-learn-logo.png" alt="logo3" style="width: 120px; padding: 0 20px; margin-bottom: 20px" >
+						<img src="images\seaborn-logo.png" alt="logo3" style="width: 150px; padding: 0 20px;margin-bottom: 20px" >
+						<img src="images\keras-logo.png" alt="logo3" style="width: 80px; padding: 0 20px; margin-bottom: 20px" >	
+					</p>
+					<h3 style="margin-top: 100px;">Project overview</h3>
+					<p>This project will explore the possibility of analyzing time-series data in the form of stock prices in order to predict future growth or decline. For this purpose, a Long-Short Term Memory (LSTM) methodology will be adopted. The methodology will use a user-defined set of consecutive days that will train a model to predict the following days’ closing price of Google. In order to do that, the model will be trained on readily available data from Yahoo Finance. In conjunction with that, additional features will be added to increase the model accuracy. Finally, different timeframes of lookbacks will be compared to each other, in the attempt to find the most optimal solution.</p>
+					<h3 style="margin-top: 100px;">Problem statement</h3>
+					<p>The task is to create an LSTM model that will predict the next day closing price as accurately as possible, based on pre-defined variables and in a user-defined look-back time frame. This will be achieved by doing the following:</p>
+					<p>1. Using Yahoo Finance API to extract data for Google stock prices</p>
+					<p>2. Pre-process the dataset, including additional features and splitting the dataset into sets of a length defined by the user, containing a tensor for the chosen variables and a matrix for the prices that match the variables</p>
+					<p>3. Build an LSTM model</p>
+					<p>4. Train the model on existing data</p>
+					<p>5. Predict the later part of the dataset by using the model</p>
+					<p>6. Compare the predicted values with the actual values</p>
+					<p>7. Tune model parameters and user inputs to improve results</p>
+					<h3 style="margin-top: 100px;">Metrics</h3>
+					<p>Mean Square Error — this metric measures the amount of error in the statistical model. Although it is not a determining metric for the success of the model due to the nature of the problem, keeping the MSE as low as possible gives an indication of a good model.</p>
+					<p>Trend — The more critical metric for the model evaluation will be the trend. A model which follows the trend of the actual price is able to predict growth or decline, which in the nature of the problem is considered to be satisfactory.</p>
+					<h3 style="margin-top: 100px;">Data exploration</h3>
+					<p>Stock data for Google has been taken from Yahoo Finance for the period of 01/10/2004–01/10/2022.</p>
+					<code>
+						def get_stock_data(symbol, start_date, end_date):<br>
+							stockData = web.DataReader(symbol, 'yahoo', start_date, end_date)<br>
+							return stockData<br>
+							<br>
+						start_date = dt.datetime(2004, 10, 1)<br>
+						end_date = dt.datetime(2022, 10, 1)<br>
+						df_GOOG = get_stock_data('GOOG',start_date, end_date)
+					</code>
+					<p>A description of the values contained in the dataset have been shown in Table 1.</p>
+					<img src="images\stock-price-1.PNG" alt="stock-price1" style="width: 100%">
+					<p>Looking at the count, it can be seen that there are no missing values. Furthermore, we can see the sharp difference between the mean, 50% and 75% and the maximum values for high, low and open. Giving an early indication of the potential spike in stock price to be observed.</p>
+					<p>Figure 1 shows the correlation between the different variables in the database. It can be seen that every variable apart from the Volume is perfectly correlated to one another.</p>
+					<img src="images\stock-price-2.PNG" alt="stock-price2" style="width: 100%">
+					<img src="images\stock-price-3.PNG" alt="stock-price3" style="width: 100%">
+					<p>In figure 2, the stock price has been plotted with respect to time. It can be observed that for the beginning of the analyzed period, the price of the stock has been steadily increasing. However, towards the end, volatility can be observed, where the price is going through periods of sharp declines and sharp upward trends.</p>
+					<h3 style="margin-top: 100px;">Algorithms and Techniques</h3>
+					<p>Long short-term memory is a type of recurrent neural network that can process not only single data points but also entire sequences of data. The name is derived from having the ability to store and take into consideration information not only from short-term memory but also retained information from previous states called ‘long-term memory‘.</p>
+					<p>LSTM models have 3 gates and 1 state:</p>
+					<p>The cell state is used to store the ‘long-term memory’. It starts from the beginning of a cycle, gets updated if necessary, and then is used in conjunction with the input to produce an output.</p>
+					<p>The forget gate is used to update the cell state in the beginning. It takes into consideration the input and the ‘short-term memory’ from the previous event and updates the cell state accordingly.</p>
+					<p>The input gate is used to add information from the new event to the previous knowledge in the cell state.</p>
+					<p>The output gate takes into consideration information fed from the cell state combined with the previous output data to return a new output.</p>
+					<img src="images\stock-price-4.PNG" alt="stock-price4" style="width: 100%">
+					<h3 style="margin-top: 100px;">Methodology</h3>
+					<p>Importing relevant libraries</p>
+					<p>Figure 4 shows the libraries that have been imported in order to proceed with the analysis. Libraries include common additions like pandas, numpy, seaborn, sklearn and keras. One library to note is the finta library used to calculate the technical indicators which will be added to the dataset, to be discussed later.</p>
+					<code>
+						import datetime as dt<br>
+						from finta import TA<br>
+						<br>
+						import pandas as pd<br>
+						from pandas_datareader import data as web<br>
+						import numpy as np<br>
+						<br>
+						import matplotlib.pyplot as plt<br>
+						import seaborn as sns<br>
+						<br>
+						from sklearn import preprocessing<br>
+						from sklearn.metrics import mean_squared_error<br>
+						from numpy import size<br>
+						from sklearn.model_selection import train_test_split<br>
+						from sklearn.preprocessing import MinMaxScaler<br>
+						<br>
+						import tensorflow as tf<br>
+						<br>
+						import keras<br>
+						from keras.models import Sequential<br>
+						from keras.models import Model<br>
+						from keras.layers import Dense, Dropout, LSTM, Input, Activation, concatenate<br>
+						from keras import optimizers<br>
+						from keras.callbacks import History<br>
+					</code>
+					<p>Data Pre-processing</p>
+					<p>After loading the dataset, there are some necessary steps which need to be performed in order to ensure firstly, the accuracy of the prediction is as high as possible and secondly, making sure that parameters are passed into the LSTM model in their correct form.</p>
+					<p>After the initial exploration of the dataset it has been determined that additional features will be required in order to increase the accuracy of the prediction. The features are in the form of technical indicators used to measure the performance of the stock in various ways. Technical indicators are split into different types, namely: trend , momentum, volatility and volume. Even though it might be tempting to include as many of those indicators as possible, adding such requires caution. If many indicators of the same type are added, the model will suffer from multicollinearity, overblowing the results in one direction or another. For this reason, it is advised that a mixture of technical indicator types are used in a way that will complement each other. Different types of strategies exist when one is looking to interpret the stock market in an attempt to make predictions on the future price of a stock. One such includes using Relative Strength Index together with Bollinger Bands. Attention needs to be placed on observing if the prices hit any of the upper or lower bands whilst looking after the RSI value to assess if the stock is overbought or oversold. Such indicators can server as an early signal for investors for a reversal in the trend of a stock.</p>
+					<p>For the purposes of this analysis the following technical indicators have been chosen:</p>
+					<p>- Relative Strength Index (RSI) — Used as a momentum indicator, commonly used to determine the strength of price changes</p>
+					<p>- On Balance Volume — Used as a volume indicator, calculating the buying and selling pressures of a stock</p>
+					<p>- Bollinger Bands — Used as a volatility and trend indicator, plots three trend lines, determining whether a stock is overbought or oversold</p>
+					<p>Once all the technical indicators are included, the dataset would need to be split into a dataset used to train the model and one that will be used to test the model on and compare its predictive power. The split will follow the standard practices by allowing for 70% of the dataset for training and 30% for testing.</p>
+					<p>Once the split has occurred, the datasets need to be normalized in order to facilitate the different ranges of values such as volume and price. It is also important to normalize the train and test datasets separately in order to prevent data leakage from one dataset to another. Sklearns’ function MinMaxScaler will be used to normalize the data of the train set. Then that scaler will be used to transform the variables of the testing dataset.</p>
+					<code>
+						#Split data<br>
+						train_data = df[:split_index]<br>
+						test_data = df[split_index:]<br>
+						<br>
+						#Normalize the variables<br>
+						normaliser = preprocessing.MinMaxScaler(feature_range=(0,1))<br>
+						#Creating a specific scaler for the y values<br>
+						y_normaliser = preprocessing.MinMaxScaler(feature_range=(0,1))<br>
+						#Normalizing the training dataset by using fit_transform<br>
+						train_normalised = normaliser.fit_transform(train_data)<br>
+					</code>
+					<p>Once splitting and normalizing is accounted for, the training and testing datasets need to be further split into 2 arguments. One includes the list of preceding events before a price prediction and the other one includes the price prediction. The above is done via a method to convert the dataset into a tensor containing all the lists of preceding events, the length of which is defined by the user, where each entry in the list keeps all of its technical indicators. Then from the passed dataset, only the next day prices are collected following the list of events, ensuring a 1-day lag. In the end, a combination of a next day price combined with its n preceding events is achieved.</p>
+					<code>
+						# split a multivariate sequence into samples<br>
+						def split_sequences(sequences, n_steps):<br>
+							'''<br>
+							A method for preprocessing arrays for LSTM modelling. The sequence will be split into two:<br>
+							- A tensor containing groups of all the variables of a user-defined set of time-steps before the price to be predicted<br>
+							- A matrix containing the prices to be predicted<br>
+							<br>
+							Args:<br>
+							-sequences - the sequence to be pre-processed<br>
+							-n_steps - user-defined time-steps before the predicted price<br>
+							<br>
+							Output:<br>
+							X - the tensor<br>
+							y - the matrix <br>
+							'''<br>
+							<br>
+							X, y = list(), list()<br>
+							for i in range(len(sequences)):<br>
+								# find the end of this pattern<br>
+								end_ix = i + n_steps<br>
+								# check if we are beyond the dataset<br>
+								if end_ix > len(sequences):<br>
+									break<br>
+								# gather input and output parts of the pattern<br>
+								seq_x, seq_y = sequences[i:end_ix, :-1], sequences[end_ix-1, -1]<br>
+								X.append(seq_x)<br>
+								y.append(seq_y)<br>
+							return np.array(X), np.array(y)<br>
+					</code>
+					<p>Model</p>
+					<p>The model that has been built includes 4 LSTM layers, each followed by a Dropout. All 4 LSTM layers have been modelled to read the input data and output 70 features and have a relu activation function. The optimizer used for the model is adam. The model is also trained for 25 epochs with a batch size of 32.</p>
+					<code>
+						def build_lstm(X_train, y_train):<br>    
+						'''<br> 
+						A method to train an LSTM model using 4 LSTM layers, 1 Dense layer and a relu activation function<br> 
+						<br> 
+						Args:<br> 
+						X_train - training variables<br> 
+						y_train - training prices<br> 
+						<br> 
+						Output:<br> 
+						model - a trained LSTM model used for predicting y_test<br> 
+						'''<br> 
+						model = Sequential()<br> 
+						#Adding the first LSTM layer and some Dropout regularisation<br> 
+						model.add(LSTM(units = 70, return_sequences = True, input_shape = (X_train.shape[1], 10)))<br> 
+						model.add(Dropout(0.2))<br> 
+						# Adding a second LSTM layer and some Dropout regularisation<br> 
+						model.add(LSTM(units = 70, return_sequences = True))<br> 
+						model.add(Dropout(0.2))<br> 
+						# Adding a third LSTM layer and some Dropout regularisation<br> 
+						model.add(LSTM(units = 70, return_sequences = True))<br> 
+						model.add(Dropout(0.2))<br> 
+						# Adding a fourth LSTM layer and some Dropout regularisation<br> 
+						model.add(LSTM(units = 70))<br> 
+						model.add(Dropout(0.2))<br> 
+						# Adding the output layer<br> 
+						model.add(Dense(units = 1))<br> 
+						model.add(Activation('relu'))<br> 
+						<br> 
+						# Compiling the RNN<br> 
+						model.compile(optimizer = 'adam', loss = 'mean_squared_error')<br> 
+						<br> 
+						# Fitting the RNN to the Training set<br> 
+						model.fit(X_train, y_train, epochs = 25, batch_size = 32)<br> 
+						<br> 
+						return model<br> 
+					</code>
+					<p>Once the model is trained, then stock price predictions are being generated based on the data from the testing dataset.</p>
+					<code>	
+						X_train, X_test, y_train, y_test, y_test_norm, split_index, days_prior = data_preprocessing(df_GOOG, 21, 0.7)<br>
+						model = build_lstm(X_train, y_train)<br>
+						predicted_stock_price = model.predict(X_test)<br>
+					</code>
+					<img src="images\stock-price-5.PNG" alt="stock-price5" style="width: 100%">
+					<p>It can be seen that the model has a low loss, indicating that it is doing a good job at guessing the training dataset.</p>
+					<p>Once the predictions have been made, they are plotted against the actual values observed in the testing dataset.</p>
+					<code>
+						# Visualising the results<br>
+						plt.figure(figsize=(15,8))<br>
+						plt.plot(y_test_norm, color = "red", label = "Real Price - scaled")<br>
+						plt.plot(predicted_stock_price, color = "blue", label = "Predicted Price - scaled")<br>
+						plt.title('Google Stock Price Prediction - 21-day look-back')<br>
+						plt.xlabel('Time range')<br>
+						plt.ylabel('Google Stock Price')<br>
+						plt.legend()<br>
+						plt.show()<br>
+						print("Mean absolute error of {0}".format(mean_squared_error(y_test_norm[:-20], predicted_stock_price, squared = False)))<br>
+					</code>
+					<img src="images\stock-price-6.PNG" alt="stock-price6" style="width: 100%">
+					<p>MSE = 0.9545</p>
+					<p>Even though the MSE of the model is around 95, it can be seen that the model has done a relatively decent job at predicting the direction at which the stock is going. However, technical indicators have performed well up until the drop in 2020. Afterwards, it can be observed that the technical indicators lose track of the rapid increase of the stock. This serves as proof that there are other factors influencing the rise of the stock — either other technical indicators or external factors like media hype or the phenomenon of fear of missing out etc.</p>
+					<p>Refinement</p>
+					<p>After observing the values in Figure 11, an attempt has been made to refine the LSTM model by fine tuning the parameters such as the number of layers, the amount of units contained in them, number of epochs etc. Another parameter which has been tweaked with is the number of days preceding the price prediction. The above results have been achieved after looking at 21 days prior to the predicted price. Attempts will be made with a shorter time-frame of 7 days and a longer time-frame of 50 days.</p>
+					<p>7 days</p>
+					<img src="images\stock-price-7.PNG" alt="stock-price7" style="width: 100%">
+					<img src="images\stock-price-8.PNG" alt="stock-price8" style="width: 100%">
+					<p>MSE = 1.009</p>
+					<p>50 days</p>
+					<img src="images\stock-price-9.PNG" alt="stock-price9" style="width: 100%">
+					<img src="images\stock-price-10.PNG" alt="stock-price10" style="width: 100%">
+					<p>MSE = 0.943</p>
+					<p>From the graphs above, it can be seen that the 7-day model follows a similar trend to the 21-day one. However, it has a higher mean square error, making it slightly worse than the 21-day model. The 50-day model on the other hand provides us with a better mean square error than the 21-day. It can, however, be seen that the predicted line does not follow the trend as well as in the 21-day model, lagging behind by a noticeable amount. The lower mean square error could be a result of the blue line having more overlapping parts with the red line, which does not necessarily result in a better model as it can be seen from the figures above.</p>
+					<p>Those 3 cases were further tested with different configurations of the LSTM model, including a different number of LSTM layers, dense layers, activation functions and units. However, it did not provide any significant improvements on the ones on display. Out of the activation functions, the relu was outperforming the other available ones by a large margin. Epochs were also increased in size, though it did not result in sizeable differences.</p>
+					<h3 style="margin-top: 100px;">Conclusion</h3>
+					<p>An attempt was made to predict the next day price of the stock of Google based on its preceding n-days. This was achieved by fetching the data from Yahoo Finances’ API and then applying an LSTM technique in order to take advantage of its ability to manipulate time-series data.</p>
+					<p>Apart from the indicators which came with the dataset from Yahoo Finance, further technical indicators have been added in an attempt to increase the accuracy of the predictions. Such additions include the Relative Strength Index (RSI) used as a momentum indicator, the On Balance Volume — used as a volume indicator and the Bollinger Bands — used as a volatility and trend indicators.</p>
+					<p>The LSTM model used included 4 LSTM layers with a relu activation function splitting the inputs into 70 features. They were followed by a Dense layer whilst the optimizer that has been used is adam.</p>
+					<p>Dataset has been split and converted into tensors at a user defined length which correspond to the number of preceding days the prediction takes into account. Lengths tested include 7-days, 21-days and 50-days. Out of the ones tested the 21-day scenario provided the best results.</p>
+					<p>All in all, the model did provide reasonable predictions on the trends of growth and decline, however, it was far from perfect. Furthermore, at the point at which volatility increased, the model did not perform well, not being able to recognize the upward trend of the stock price.</p>
+					<p>Improvement</p>
+					<p>Improvements on the model include researching and testing out different technical indicators in an attempt to find the ones with the highest predictive power. More combinations within the LSTM model can be explored including layers, number of epochs etc. Furthermore, as mentioned previously, external factors do also influence the change in price of the stock. Incorporating an algorithm which would be able to track the sentiment of the market and applying a weight based on positive or negative news trends might prove to be beneficial in increasing accuracy. A natural language processing algorithm can be used for this purpose to analyze articles or other sources of text information. Once a desirable accuracy is achieved, an algorithm can be written that incorporates a buy/sell strategy which would maximize profits.</p>
+					<h3>Useful links:</h3>
+					<a href="https://github.com/PWolf96/Stock-Predictor">Github: Predicting stock prices</a>
+					<a href="https://medium.com/@pv1g15/predicting-stock-prices-afd6781c898e">Medium: Predicting stock prices</a>	
+				</article>
 		
 			</div>
 			<div class="container">
 				<h2>Featured Project</h2>
-				<div class="card">
-					<h2>GARVIZ</h2>
-					<p>Garviz is a full stack web application which can be used to assist football teams manage their performance.</p>
-					<li><a href="#garviz">Read More</a></li>
+				<div class="card" style="display: flex; flex-direction: column;">
+					<div style="flex-grow: 1;">
+						<h2>GARVIZ</h2>
+						<p>Garviz is a full stack web application which can be used to assist football teams manage their performance.</p>
+					</div>
+					<div style="align-self: flex-end; flex-grow: 0;">
+						<li><a href="#garviz">Read More</a></li>
+					</div>
 				</div>
 			</div>
 			<div class="container">
-				<div class="card">
-					<h2>Predicting patterns of play</h2>
-					<p>Association analysis is a method used to mine patterns among high volume of events. It groups all the events which happened together and then analyses which occur together more often than not, compared to the total amount of event sequences.</p>
-					<li><a href="#patterns">Read More</a></li>
+				<div class="card" style="display: flex; flex-direction: column;">
+					<div style="flex-grow: 1;">
+						<h2>Predicting stock prices</h2>
+						<p>This project will explore the possibility of analyzing time-series data in the form of stock prices in order to predict future growth or decline.</p>
+					</div>
+					<div style="align-self: flex-end; flex-grow: 0;">
+						<a href="#stock-price">Read More</a>
+					</div>
 				</div>
-				<div class="card">
-					<h2>Player contribution</h2>
-					<p>This project makes use of markov chains to evaluate how players contribute to the probability of the team taking a shot on goal</p>
-					<a href="#contribution1">Read More</a>
+				<div class="card" style="display: flex; flex-direction: column;">
+					<div style="flex-grow: 1;">
+						<h2>Disaster response</h2>
+						<p>Association analysis is a method used to mine patterns among high volume of events. It groups all the events which happened together and then analyses which occur together more often than not, compared to the total amount of event sequences.</p>
+					</div>
+					<div style="align-self: flex-end; flex-grow: 0;">
+						<a href="#disaster-response">Read More</a>
+					</div>
 				</div>
-				<div class="card">
-					<h2>Player contribution - 2nd order</h2>
-					<p>This project explores further markov chains and tests if accuracy will improve with a higher order analysis</p>
-					<a href="#contribution2">Read More</a>
+				<div class="card" style="display: flex; flex-direction: column;">
+					<div style="flex-grow: 1;">
+						<h2>Rent price estimator</h2>
+						<p>Association analysis is a method used to mine patterns among high volume of events. It groups all the events which happened together and then analyses which occur together more often than not, compared to the total amount of event sequences.</p>
+					</div>
+					<div style="align-self: flex-end; flex-grow: 0;">
+						<a href="#rent-price">Read More</a>
+					</div>
 				</div>
-				<div class="card">
-					<h2>Predicting playstyles</h2>
-					<p>A project which makes use of Long-short term memory to classify a chain of events to a particular playstyle</p>
-					<a href="#playstyles">Read More</a>
+				<div class="card" style="display: flex; flex-direction: column;">
+					<div style="flex-grow: 1;">
+						<h2>Predicting patterns of play</h2>
+						<p>Association analysis is a method used to mine patterns among high volume of events. It groups all the events which happened together and then analyses which occur together more often than not, compared to the total amount of event sequences.</p>
+					</div>
+					<div style="align-self: flex-end; flex-grow: 0;">
+						<a href="#patterns">Read More</a>
+					</div>
 				</div>
-				<div class="card">
-					<h2>Article 5</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nunc sed lacus consequat, a venenatis justo malesuada. Fusce pharetra libero sit amet urna fermentum, at laoreet orci bibendum. Curabitur efficitur blandit turpis eu volutpat.</p>
-					<a href="#">Read More</a>
-				</div>				
+				<div class="card" style="display: flex; flex-direction: column;">
+					<div style="flex-grow: 1;">
+						<h2>Player contribution</h2>
+						<p>This project makes use of markov chains to evaluate how players contribute to the probability of the team taking a shot on goal</p>
+					</div>
+					<div style="align-self: flex-end; flex-grow: 0;">
+						<a href="#contribution1">Read More</a>
+					</div>
+				</div>
+				<div class="card" style="display: flex; flex-direction: column;">
+					<div style="flex-grow: 1;">
+						<h2>Player contribution - 2nd order</h2>
+						<p>This project explores further markov chains and tests if accuracy will improve with a higher order analysis</p>
+					</div>
+					<div style="align-self: flex-end; flex-grow: 0;">
+						<a href="#contribution2">Read More</a>
+					</div>
+				</div>
+				<div class="card" style="display: flex; flex-direction: column;">
+					<div style="flex-grow: 1;">
+						<h2>Predicting playstyles</h2>
+						<p>A project which makes use of Long-short term memory to classify a chain of events to a particular playstyle</p>
+					</div>
+					<div style="align-self: flex-end; flex-grow: 0;">
+						<a href="#playstyles">Read More</a>
+					</div>
+				</div>			
 		</div>	
 		</div>
 		

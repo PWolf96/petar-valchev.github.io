@@ -184,9 +184,9 @@
 					<a href="https://github.com/PWolf96/Football-Data-Science">Github: Predicting patterns of play</a>
 					<a href="https://medium.com/@pv1g15/predicting-patterns-of-play-e0817d0d7055">Medium: Predicting patterns of play</a>
 				</article>
-				<!-- Intro -->
+				<!-- Player contribution - 1 -->
 				<article id="contribution1">
-					<h2 class="major">Intro</h2>
+					<h2 class="major">Player contribution - 1st order</h2>
 					<p>This article will explore the possibility of evaluating player contribution to shots. Inspired by an article written by StatsBomb, a first-order Markov model will be constructed to take into account all events that have happened in a single season for Chelsea WFC and evaluate their contribution towards a shot.</p>
 					<h3 style="margin-top: 100px;">First order Markov chain</h3>
 					<p>A Markov chain is a random process describing a sequence of possible events in which the probability of each event depends on events that happened before. This analysis will use a first-order Markov chain meaning that the probability of each event depends only on the state attained in the previous event. A graphical representation of the chain is given in Figure 1. The chain is divided into transition states and absorption states.</p>
@@ -234,19 +234,87 @@
 					<a href="https://github.com/PWolf96/Football-Data-Science">Github: Evaluating player contribution</a>
 					<a href="https://medium.com/@pv1g15/evaluating-player-contribution-f9faea52238b">Medium: Evaluating player contribution</a>
 				</article>
-				<!-- Intro -->
-				<article id="intro4">
-					<h2 class="major">Intro</h2>
-					<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-					<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+				<!-- Player contribution - 2 -->
+				<article id="contribution2">
+					<h2 class="major">Player contribution - 2nd order</h2>
+					<h3 style="margin-top: 100px;">Methodology:</h3>
+					<p>The methodology is the same as in the first-order Markov chain analysis with a few notable exceptions.</p>
+					<p>Zones 1 to Zone 15 have been condensed to Zone 1 — Zone 3 as outlined in Figure 1 below. Reason being that implementing a second-order model contributes to a significant increase in transient states which would be computationally demanding.</p>
+					<img src="images\markov2-1.PNG" alt="markov2-1" style="width: 100%">
+					<p>The two absorption states have been kept as Loss of possession and Shot. However, the transient state corresponds to the pairing of the current state with its preceding state. Having 18 zones combined with 4 set-piece states amounts to a total of 484 transient states to be considered. Table 1 presents possession 5, manipulated to suit a second-order model.</p>
+					<img src="images\markov2-2.PNG" alt="markov2-2" style="width: 100%">
+					<p>Constructing the matrices proved to be not as straightforward as in the first-order model. Having a second-order model firstly increased the amount of possible scenarios more than tenfold. Secondly, it resulted in some highly unlikely combinations for example:</p>
+					<p>Zone 1 — Zone 30 -> Zone 30 — Zone 1</p>
+					<p>Zone 1 — Corner -> Corner — Zone 3 etc.</p>
+					<p>This would result in many zero-sum columns in the matrices which is problematic. Excluding those whilst maintaining a square matrix would result in data loss. However, in the context of a football game, it is assumed that any events that have been linked to any of the pruned scenarios would have not had any significant contribution to shot generation. Therefore a decision has been made to prune the zero-sum cases which would reduce the transient states to 394.</p>
+					<p>Finally, the player contribution is calculated using the following formula:</p>
+					<p>Player contribution = Probability of a shot | Next event pair — Probability of a shot | Current event pair</p>
+					<h3 style="margin-top: 100px;">Results:</h3>
+					<p>Figure 3 presents the results from the second-order model compared to the first-order one.</p>
+					<img src="images\markov2-3.PNG" alt="markov2-3" style="width: 100%">
+					<p>Looking at Figure 3 it can be concluded that applying a second-order Markov model does make a difference in the outcome for shot contribution. Most of the players have had a positive change in contribution with a notable exception being Sam Kerr. This implies that most players have been losing possession when there was little possibility to progress the attack, meaning that when they get an opportunity to create a shot they are converting more than the first-order model suggests. Another reason can be the fact that the zones have been reduced to 18 which lowers the shot possibility of zones closer to the halfway line as they are put in the same category as the least shot potent zones. Although absolute contribution has improved, when comparing players, the order has not changed dramatically, meaning that all players benefit from the second-order model in the same manner. Notable exceptions to that are Ann-Katrin Berger and Millie Bright who seem to have benefited the most from the model.</p>
+					<h3 style="margin-top: 100px;">Conclusion:</h3>
+					<p>Implementing a second-order Markov model suggests that including the preceding event in the context of the current event makes a difference in the probability of creating a shooting opportunity. That is to the surprise of any person who has watched a game of football. However, it was interesting to see how certain players have benefited more than others, suggesting a certain play style. Insights can be derived from comparing the two models alone since it has proven that it highlights players who are frequently on the receiving end of an unfavourable event, whether it is a pass, a clearance or a dribble. Analysing all 30 zones would provide an even more accurate estimate of the above, however, such a process is computationally demanding and could not be performed.</p>
+					<p>Football sometimes is a cruel game. Watching a certain player who has not had an impact may suggest that he has had little contribution and most conventional statistics can back that claim, where in reality there was little opportunity to contribute in the first place. Models like this highlight such cases. The context can then be further examined and tactical considerations can be put in place in order to improve performance. Something which in the long run can make a difference.</p>
+					<h3>Useful links:</h3>
+					<a href="https://github.com/PWolf96/Football-Data-Science">Github: Evaluating player contribution - 2nd order</a>
+					<a href="https://medium.com/@pv1g15/evaluating-player-contribution-continued-1f5855636dcd">Medium: Evaluating player contribution - 2nd order</a>		
 				</article>
-				<!-- Intro -->
-				<article id="intro3">
-					<h2 class="major">Intro</h2>
-					<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-					<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+				<!-- Predicting playstyles -->
+				<article id="playstyles">
+					<h2 class="major">Predicting playstyles</h2>
+					<p>This analysis will attempt to use LSTM models to classify the playing styles of teams based on possession sequences. Three main categories will be defined which represent the main styles of play that a team can produce namely Slow build-up, Direct play and Control based play. Two more categories are added in Set-pieces and Uncategorized to allow for isolated events and less organized sequences to be classified.</p>
+					<h3 style="margin-top: 100px;">LSTM Neural Networks</h3>
+					<p>Long short-term memory is a type of recurrent neural network that can process not only single data points but also entire sequences of data. The name is derived from having the ability to store and take into consideration information not only from short-term memory but also retained information from previous states called ‘long-term memory‘.</p>
+					<p>LSTM models have 3 gates and 1 state:</p>
+					<p>The cell state is used to store the ‘long-term memory’. It starts from the beginning of a cycle, gets updated if necessary, and then is used in conjunction with the input to produce an output.</p>
+					<p>The forget gate is used to update the cell state in the beginning. It takes into consideration the input and the ‘short-term memory’ from the previous event and updates the cell state accordingly.</p>
+					<p>The input gate is used to add information from the new event to the previous knowledge in the cell state.</p>
+					<p>The output gate takes into consideration information fed from the cell state combined with the previous output data to return a new output.</p>
+					<img src="images\playstyles1.PNG" alt="playstyles1" style="width: 100%">
+					<h3 style="margin-top: 100px;">Methodology:</h3>
+					<p>1. Labelling sequences</p>
+					<p>The labels are one of the most important decisions that need to be made in a classification exercise. In football, teams can have</p>
+					<p>Slow build-up — A sequence containing more than 5 short-medium length passes which aim to advance the ball into dangerous areas.</p>
+					<img src="images\playstyles2.PNG" alt="playstyles2" style="width: 100%">
+					<p>Set-Piece — Free-kicks, Corners, Throw-ins</p>
+					<img src="images\playstyles3.PNG" alt="playstyles3" style="width: 100%">
+					<p>Direct — A sequence that contains mainly forward passes which aim to progress the ball into dangerous areas as quickly as possible.</p>
+					<img src="images\playstyles4.PNG" alt="playstyles4" style="width: 100%">
+					<p>Control — A sequence containing many forward and backward passes which aim to keep the current state of the game.</p>
+					<img src="images\playstyles5.PNG" alt="playstyles5" style="width: 100%">
+					<p>Uncategorized — Sequences that do not fall under any of the other four categories.</p>
+					<img src="images\playstyles6.PNG" alt="playstyles6" style="width: 100%">
+					<p>2119 sequences in total from season 20–21 season have been labelled</p>
+					<p>1. Prune event information</p>
+					<p>Each event in the database contains 173 pieces of information which would be computationally demanding if used without any adjustments. For this reason, a focus has been given to information that is critical to identifying the playstyle, namely:</p>
+					<p>Type of event, play pattern, player position, pressure, location of events and various crucial details about specific event types like pass length, pass height etc. After pruning was performed, the information for each event was reduced to 33 pieces of information.</p>
+					<p>2. One-hot encoding all categorical information</p>
+					<p>As big part of the data comes in categorical textual format, encoding needs to be performed. Most of the textual data is in a nominal form and is, therefore, one-hot encoded. One-hot encoding avoids the hierarchical assumptions of other type of encodings which are mainly targeting ordinal data. There were also Boolean values which would be mapped as 1 if true and 0 if false.</p>
+					<p>3. A threshold of 60 events per sequence has been established</p>
+					<p>Out of all 2119 sequences, there were only 8 sequences above 60 with the highest being 79 events. In order to increase efficiency, those 8 sequences have been excluded from the analysis.</p>
+					<p>4. Balancing labels</p>
+					<p>The initial labelling of playing style indicates that there is an imbalance in the label occurrence as outlined in figure 3.</p>
+					<img src="images\playstyles7.PNG" alt="playstyles7" style="width: 100%">
+					<p>Slow build-up is almost 8 times more frequent than Control. An oversampling has been applied by resizing each label to achieve a more balanced distribution.</p>
+					<p>After being balanced, the dataset was split into training and testing with an 80/20 split and a dictionary was created from the tensors of the sequence and its respective label. Finally, an LSTM model has been applied using PyTorch and PyTorch with cross-entropy has been used as the loss function.</p>
+					<h3 style="margin-top: 100px;">Results:</h3>
+					<p>Results from the LSTM model are presented in Figures 2 and 3. A high validation accuracy has been achieved with 91%. However, it can be seen that validation loss is higher than training loss, with the minimum loss achieved is 39%. It remains stable at around 40–45% which is a positive sign that the model does not overfit. The relationship between accuracy and loss indicates that although the absolute prediction is accurate most of the time, the model is not confident in it. That kind of behaviour is to be expected due to the high variability of the data inputs and the lack of a strong definition of each label.</p>
+					<p>Different scenarios have been run as shown in figures 2 and 3 trying to improve the validation loss. However, it can be seen that results remain pretty stable across all four different scenarios.</p>
+					<img src="images\playstyles8.PNG" alt="playstyles8" style="width: 100%">
+					<img src="images\playstyles9.PNG" alt="playstyles9" style="width: 100%">
+					<p>The achieved validation loss will be deemed satisfactory due to the nature of the analysis. As discussed above football playing patterns do not have a specific definition. They are open to interpretation and are heavily dependent on context. Even though an attempt has been made to define a set of rules to aid labelling, the highly varying nature of the sequences decreases the confidence in the predictions. Moreover, in this analysis, only the critical information to identify the event location and type has been included. Working with a bigger sample size would allow for more context-defining variables to be included which should, in theory, help the model in its predictive confidence. Results shown from the confusion matrix in Figure 4 show that slow build-up is the one with the lowest accuracy and is mostly mistaken for direct or control play styles. This is to be expected due to the fact that both playing styles can be quite similar to each other when taking into account only event coordinates and event count. However, even without including context, the model was able to predict correctly almost 80% of the time. Uncategorized data was mostly mistaken for direct plays and set-pieces. This could be because some of the labelled direct plays and set-pieces contain only one event which is most of what the uncategorized labels are made of. It can be observed that direct plays are not mistaken for control plays, mainly due to the fact that by definition, one play style should presumably contain much shorter sequences than the other, something which the model has recognized. Lastly, it can be seen that control plays have been predicted 100% of the time, which could be largely due to oversampling that was done earlier.</p>
+					<img src="images\playstyles10.PNG" alt="playstyles10" style="width: 100%">
+					<p>The predictive power of the model can be enhanced by including information on the context of a particular sequence. Information like the types of passes (differentiating between risky and safe) or pressure applied could significantly improve the model. Furthermore, more specific definitions for labelling could also increase the confidence in which the model predicts.</p>
+					<h3 style="margin-top: 100px;">Conclusion:</h3>
+					<p>The higher the level that football is played, the smaller the differentiations that separate the winners from the losers. The more difficult it becomes for the naked eye to spot and pinpoint an objective reason for a certain outcome. Moreover, no human can catch all details in a game and even experienced professionals would require highly concentrated efforts before labelling certain playing sequences and reaching the stage where they ask the right questions. Having a tool which significantly shortens the amount of time needed to ask the right questions would allow analysts to spend more time finding the answers to those questions.</p>
+					<p>An LSTM model was used to classify possession sequences into playing styles. The achieved accuracy was 91% on the best iteration and the loss was 40% which, considering the complex nature of the sequences, was deemed to be satisfactory.</p>
+					<p>Such models outline initial steps towards being able to objectively classify complex datasets such as the ones of a free-flowing game of football. The same approach can be used to classify specific events which teams would like to bring attention to during opposition or team analysis. It could also be used towards understanding the habits of players and putting them into a category which can then be used to assess if one is a good fit for a certain system.</p>
+					<p>Attention is brought to many events or sequences that share similar contexts and are classified as being the same in an efficient manner, without needing to spend a vast amount of time. The saved time can then be utilized to break them down to the finest details and then find patterns to be able to come close to the way people involved in the decisions think and more importantly maybe uncover more pieces of the puzzle towards a certain outcome. Something which in the long run can make a difference.</p>
+					<h3>Useful links:</h3>
+					<a href="https://github.com/PWolf96/Football-Data-Science">Github: Predicting playstyles</a>
+					<a href="https://medium.com/@pv1g15/classifying-playstyles-cb5b3126a9be">Medium: Predicting playstyles</a>	
+				
 				</article>
 		
 			</div>
@@ -270,14 +338,14 @@
 					<a href="#contribution1">Read More</a>
 				</div>
 				<div class="card">
-					<h2>Article 3</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nunc sed lacus consequat, a venenatis justo malesuada. Fusce pharetra libero sit amet urna fermentum, at laoreet orci bibendum. Curabitur efficitur blandit turpis eu volutpat.</p>
-					<a href="#">Read More</a>
+					<h2>Player contribution - 2nd order</h2>
+					<p>This project explores further markov chains and tests if accuracy will improve with a higher order analysis</p>
+					<a href="#contribution2">Read More</a>
 				</div>
 				<div class="card">
-					<h2>Article 4</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nunc sed lacus consequat, a venenatis justo malesuada. Fusce pharetra libero sit amet urna fermentum, at laoreet orci bibendum. Curabitur efficitur blandit turpis eu volutpat.</p>
-					<a href="#">Read More</a>
+					<h2>Predicting playstyles</h2>
+					<p>A project which makes use of Long-short term memory to classify a chain of events to a particular playstyle</p>
+					<a href="#playstyles">Read More</a>
 				</div>
 				<div class="card">
 					<h2>Article 5</h2>
